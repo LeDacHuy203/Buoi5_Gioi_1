@@ -124,10 +124,16 @@ HAVING sum(o.total_price) = (SELECT sum(o.total_price) as total_revenue
                              LIMIT 1);
 -- 4. (Mở rộng) Hãy dùng INNER JOIN giữa customers, orders, order_items để hiển thị chi tiết:
 -- Tên khách hàng, tên thành phố, tổng sản phẩm đã mua, tổng chi tiêu
-
-SELECT c.customer_name, c.city, count(o.order_id), sum(o.total_price)
+SELECT c.customer_name,
+       c.city,
+       SUM(oi.quantity)            AS total_products,
+       SUM(oi.quantity * oi.price) AS total_spent
 FROM customers c
-         JOIN orders o ON o.customer_id = c.customer_id
-         JOIN order_items oi ON oi.order_id = o.order_id
-GROUP BY c.customer_id;
+         JOIN orders o
+              ON o.customer_id = c.customer_id
+         JOIN order_items oi
+              ON oi.order_id = o.order_id
+GROUP BY c.customer_id,
+         c.customer_name,
+         c.city;
 
