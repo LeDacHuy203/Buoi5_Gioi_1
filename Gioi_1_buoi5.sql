@@ -53,10 +53,10 @@ CREATE TABLE order_items
 -- THÊM DỮ LIỆU CUSTOMERS
 -- =========================================
 INSERT INTO customers (customer_name, city)
-VALUES ('Nguyen Van A', 'Ha Noi'),
-       ('Tran Thi B', 'Da Nang'),
-       ('Le Van C', 'Ho Chi Minh'),
-       ('Pham Thi D', 'Ha Noi');
+VALUES ('Nguyen Van A', 'Hà Nội'),
+       ('Tran Thi B', 'Đà Nẵng'),
+       ('Le Van C', 'Hồ Chí Minh'),
+       ('Pham Thi D', 'Hà Nội');
 
 -- =========================================
 -- THÊM DỮ LIỆU ORDERS
